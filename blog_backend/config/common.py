@@ -24,6 +24,7 @@ class Common(Configuration):
 
         # Your apps
         'blog_backend.users',
+        'blog_backend.mypages',
 
     )
 

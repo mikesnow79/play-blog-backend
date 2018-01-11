@@ -7,7 +7,9 @@ from django.views.generic.base import TemplateView
 class IndexPageView(TemplateView):
     template_name = 'index.html'
 
-# def index_view(request):
-#     now = datetime.datetime.now()
-#     html = "<html><body>It is now %s.</body></html>" % now
-#     return HttpResponse(html)
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        now = datetime.datetime.now()
+        context['current_time'] = now
+        context['REVISION'] = '1.0.0'
+        return context
