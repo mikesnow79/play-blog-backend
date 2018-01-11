@@ -6,14 +6,14 @@ from django.views.generic.base import RedirectView
 from rest_framework.routers import DefaultRouter
 from rest_framework.authtoken import views
 from .users.views import UserViewSet, UserCreateViewSet
-from .mypages.views import index_view
+from .mypages.views import IndexPageView
 
 router = DefaultRouter()
 router.register(r'users', UserViewSet)
 router.register(r'users', UserCreateViewSet)
 
 urlpatterns = [
-    path('index/', index_view),
+    path('index/', IndexPageView.as_view()),
     path('admin/', admin.site.urls),
     path('api/v1/', include(router.urls)),
     path('api-token-auth/', views.obtain_auth_token),
