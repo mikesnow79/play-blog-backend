@@ -4,6 +4,7 @@ Django==2.0.1
 django-configurations==2.0
 gunicorn==19.7.1
 newrelic==2.100.0.84
+django-cors-headers
 
 # For the persistence stores
 psycopg2==2.7.3.2

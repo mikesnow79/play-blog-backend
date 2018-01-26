@@ -21,15 +21,18 @@ class Common(Configuration):
         'rest_framework',            # utilities for rest apis
         'rest_framework.authtoken',  # token authentication
         'django_filters',            # for filtering rest endpoints
+        'corsheaders',
 
         # Your apps
         'blog_backend.users',
         'blog_backend.mypages',
 
+
     )
 
     # https://docs.djangoproject.com/en/2.0/topics/http/middleware/
     MIDDLEWARE = (
+        'corsheaders.middleware.CorsMiddleware',
         'django.middleware.security.SecurityMiddleware',
         'django.contrib.sessions.middleware.SessionMiddleware',
         'django.middleware.common.CommonMiddleware',
@@ -182,6 +185,9 @@ class Common(Configuration):
 
     # Custom user app
     AUTH_USER_MODEL = 'users.User'
+
+    # CORS
+    CORS_ORIGIN_WHITELIST = tuple()
 
     # Django Rest Framework
     REST_FRAMEWORK = {
